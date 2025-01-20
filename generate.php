@@ -9,7 +9,7 @@ $DIRS = array_merge(
 
 foreach($DIRS as $DIR)
 {
-    $EXP = explode('/', $DIR);
+    $EXP = array_values(array_filter(explode('/', $DIR)));
     print_r($EXP);
     echo $DIR . PHP_EOL;
 }

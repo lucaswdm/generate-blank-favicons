@@ -10,8 +10,13 @@ $DIRS = array_merge(
 foreach($DIRS as $DIR)
 {
     $EXP = array_values(array_filter(explode('/', $DIR)));
-    print_r($EXP);
-    echo $DIR . PHP_EOL;
+    if(validateDomain($EXP[1]))
+    {
+        $FILE_FAVICON = $DIR . 'favicon.ico';
+        if(!is_file($FILE_FAVICON)) { touch($FILE_FAVICON); chmod($FILE_FAVICON, 0777); echo "[CREATED] " . $FILE_FAVICON . PHP_EOL; }
+    }
+    #print_r($EXP);
+    #echo $DIR . PHP_EOL;
 }
 
 

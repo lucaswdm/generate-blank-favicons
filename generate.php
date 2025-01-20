@@ -9,6 +9,7 @@ $DIRS = array_merge(
 
 foreach($DIRS as $DIR)
 {
+    if(!is_dir($DIR)) continue;
     $EXP = array_values(array_filter(explode('/', $DIR)));
     if(validateDomain($EXP[1]))
     {
